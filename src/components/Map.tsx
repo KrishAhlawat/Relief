@@ -1,4 +1,4 @@
-// src/components/Map.tsx
+'use client'
 import React, { useEffect, useState } from 'react'
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api'
 import { db } from '../lib/firebase'
