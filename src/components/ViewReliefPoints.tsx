@@ -13,7 +13,7 @@ interface ReliefPoint {
   id: string
   name: string
   type: string
-  location: any  // we'll narrow this in a second
+  location: { latitude: number; longitude: number } | { _lat: number; _long: number } | { lat: number; lng: number }
 }
 
 export default function ReliefPointList() {
@@ -26,7 +26,7 @@ export default function ReliefPointList() {
     })
   }, [])
 
-  const formatLocation = (loc: any) => {
+  const formatLocation = (loc: { latitude: number; longitude: number } | { _lat: number; _long: number } | { lat: number; lng: number }) => {
     // Firestore GeoPoint
     if ('latitude' in loc && 'longitude' in loc) {
       return `${loc.latitude.toFixed(4)}, ${loc.longitude.toFixed(4)}`
