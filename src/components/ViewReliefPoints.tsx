@@ -44,14 +44,18 @@ export default function ReliefPointList() {
   }
 
   return (
-    <ul className="space-y-4">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-4 md:px-20">
       {points.map(p => (
-        <li key={p.id} className="p-4 border rounded">
-          <h3 className="font-semibold">{p.name}</h3>
-          <p>Type: {p.type}</p>
-          <p>Location: {formatLocation(p.location)}</p>
-        </li>
+      <div key={p.id} className="p-6 border rounded-lg shadow-md bg-white hover:shadow-lg transition-shadow">
+        <h3 className="text-lg font-bold text-gray-800 mb-2">{p.name}</h3>
+        <p className="text-sm text-gray-600 mb-1">
+        <span className="font-medium">Type:</span> {p.type}
+        </p>
+        <p className="text-sm text-gray-600">
+        <span className="font-medium">Location:</span> {formatLocation(p.location)}
+        </p>
+      </div>
       ))}
-    </ul>
+    </div>
   )
 }
